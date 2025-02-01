@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Firebase Token Generator</title>
+</head>
+
+<body>
+    <!-- Include the Firebase JavaScript SDK (v8) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+    <script>
+        // Initialize Firebase with your project's configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyB_8Z5Kw8JVZV8YUOCXypTzn-F_W8BmY0E",
+            authDomain: "english-cafe-f21a6.firebaseapp.com",
+            projectId: "english-cafe-f21a6",
+            storageBucket: "english-cafe-f21a6.appspot.com",
+            messagingSenderId: "1029721840219",
+            appId: "1:1029721840219:web:c27fcdb259e083d4ce3d7e",
+            measurementId: "G-QB7CBKBD1T"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <h1>Firebase Token Generator</h1>
+
+    <form id="token-form">
+        <label for="uid">User UID:</label>
+        <input type="text" id="uid" name="uid" required>
+        <button type="submit">Generate Token</button>
+    </form>
+
+    <script>
+        const loginForm = document.getElementById("token-form");
+
+        loginForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const email = 'mocktoken@gmail.com';
+            const password = 'abc123';
+
+            try {
+                // Sign in with email and password
+                const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+
+ 
+
+                // User is now authenticated
+                const user = userCredential.user;
+
+                const idToken = await user.getIdToken();
+                console.log("Access Token:", idToken);
+
+                alert(`Authenticated as: ${user.email}`);
+            } catch (error) {
+                console.error("Authentication error:", error);
+                alert("Authentication failed. Check the console for details.");
+            }
+        });
+    </script>
+</body>
+
+</html>

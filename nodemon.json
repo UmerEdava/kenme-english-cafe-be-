@@ -1,0 +1,6 @@
+{
+    "env": {
+        "MONGO_ATLAS_PW": "forward",
+        "JWT_KEY": "1223332121w12"
+    }
+}
