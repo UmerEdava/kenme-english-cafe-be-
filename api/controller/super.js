@@ -124,7 +124,7 @@ exports.add_feedback = async (req, res, next) => {
 };
 exports.add_banner = async (req, res, next) => {
   const name = req.body.name;
-  const file = req.files["file"][0]["location"];
+  const file = req.files?.["file"]?.[0]?.["location"];
 
   const banner = new Banner({
     _id: new mongoose.Types.ObjectId(),
