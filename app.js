@@ -11,9 +11,10 @@ const superRoutes = require("./api/routes/super");
 mongoose.connect(
   // "mongodb+srv://forward:" + process.env.MONGO_ATLAS_PW + "@nfc-ard8q.mongodb.net/<dbname>?retryWrites=true&w=majority"
   // "mongodb+srv://forward:" + process.env.MONGO_ATLAS_PW + "@cluster0-zillr.mongodb.net/<dbname>?retryWrites=true&w=majority", {
-  // "mongodb+srv://admin:admin@cluster0.u169g.mongodb.net/kenme?retryWrites=true&w=majority", THIS WAS THEIR DB
+  "mongodb+srv://admin:admin@cluster0.u169g.mongodb.net/kenme?retryWrites=true&w=majority", 
+  // THIS WAS THEIR DB
   // "mongodb+srv://admin:admin@cafe.qrove.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-  "mongodb+srv://umeredava:B2KfNgHCyCxlCnVt@cluster0.o5ksmkg.mongodb.net/kenme",
+  // "mongodb+srv://umeredava:B2KfNgHCyCxlCnVt@cluster0.o5ksmkg.mongodb.net/kenme",
   {
     useUnifiedTopology: true,
     useNewUrlParser: true,
