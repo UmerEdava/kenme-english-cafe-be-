@@ -5,13 +5,15 @@ var bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
+require("dotenv").config();
+
 const userRoutes = require("./api/routes/users");
 const superRoutes = require("./api/routes/super");
 
 mongoose.connect(
   // "mongodb+srv://forward:" + process.env.MONGO_ATLAS_PW + "@nfc-ard8q.mongodb.net/<dbname>?retryWrites=true&w=majority"
   // "mongodb+srv://forward:" + process.env.MONGO_ATLAS_PW + "@cluster0-zillr.mongodb.net/<dbname>?retryWrites=true&w=majority", {
-  "mongodb+srv://admin:admin@cluster0.u169g.mongodb.net/kenme?retryWrites=true&w=majority", 
+  process.env.MONGO_URI, 
   // THIS WAS THEIR DB
   // "mongodb+srv://admin:admin@cafe.qrove.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   // "mongodb+srv://umeredava:B2KfNgHCyCxlCnVt@cluster0.o5ksmkg.mongodb.net/kenme",
