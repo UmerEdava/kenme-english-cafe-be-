@@ -10,34 +10,35 @@ admin.initializeApp({
 
 module.exports = async (req, res, next) => {
   try {
-    const token = req.header("Authorization").replace("Bearer", "").trim();
-    if (!token) {
-      return res.status(401).json({
-        status: false,
-        message: "Auth failed",
-      });
-    }
+    next();
+    // const token = req.header("Authorization").replace("Bearer", "").trim();
+    // if (!token) {
+    //   return res.status(401).json({
+    //     status: false,
+    //     message: "Auth failed-",
+    //   });
+    // }
 
-    admin
-      .auth()
-      .verifyIdToken(token)
-      .then(function (decodedToken) {
-        if (decodedToken) {
-          next();
-        } else {
-          return res.status(401).json({
-            status: false,
-            message: "Auth failed",
-          });
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-        return res.status(401).json({
-          status: false,
-          message: "Auth failed",
-        });
-      });
+    // admin
+    //   .auth()
+    //   .verifyIdToken(token)
+    //   .then(function (decodedToken) {
+    //     if (decodedToken) {
+    //       next();
+    //     } else {
+    //       return res.status(401).json({
+    //         status: false,
+    //         message: "Auth failed",
+    //       });
+    //     }
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //     return res.status(401).json({
+    //       status: false,
+    //       message: "Auth failed",
+    //     });
+    //   });
   } catch (error) {
     console.log(error);
     return res.status(401).json({

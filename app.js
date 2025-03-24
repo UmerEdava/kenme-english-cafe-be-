@@ -16,7 +16,6 @@ mongoose.connect(
   process.env.MONGO_URI, 
   // THIS WAS THEIR DB
   // "mongodb+srv://admin:admin@cafe.qrove.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-  // "mongodb+srv://umeredava:B2KfNgHCyCxlCnVt@cluster0.o5ksmkg.mongodb.net/kenme",
   {
     useUnifiedTopology: true,
     useNewUrlParser: true,
