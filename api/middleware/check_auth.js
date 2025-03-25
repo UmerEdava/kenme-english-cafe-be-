@@ -2,7 +2,11 @@
 const Devices = require("../models/devices");
 
 const admin = require("firebase-admin");
-const serviceAccount = require("./english-cafe-f21a6-firebase-adminsdk-jaw1b-135f67c67a.json");
+// const serviceAccount = require("./english-cafe-f21a6-firebase-adminsdk-jaw1b-135f67c67a.json");
+
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+
+serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, "\n"),
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
