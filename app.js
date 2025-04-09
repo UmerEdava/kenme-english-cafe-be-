@@ -9,6 +9,7 @@ require("dotenv").config();
 
 const userRoutes = require("./api/routes/users");
 const superRoutes = require("./api/routes/super");
+const job = require("./cron/cron");
 
 mongoose.connect(
   // "mongodb+srv://forward:" + process.env.MONGO_ATLAS_PW + "@nfc-ard8q.mongodb.net/<dbname>?retryWrites=true&w=majority"
@@ -44,6 +45,8 @@ app.use(function (req, res, next) {
   );
   next();
 });
+
+job.start();
 
 // Routes should handle request
 app.use("/user", userRoutes);
