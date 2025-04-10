@@ -3,7 +3,7 @@ const https = require("https");
 
 const URL = "https://kenme-english-cafe-be.onrender.com/user/questions";
 
-const job = new CronJob("* * * * *", function () {
+const job = new CronJob("*/14 * * * *", function () {
 	https
 		.get(URL, (res) => {
 			if (res.statusCode === 200) {

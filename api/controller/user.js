@@ -126,6 +126,7 @@ exports.delete_class = async (req, res, next) => {
   );
 };
 exports.get_classes = async (req, res, next) => {
+  console.log('user get classes body: ', req.body)
   var filters = {};
   if (req.body.content_type) filters.content_type = req.body.content_type;
   if (req.body.class_type)
